@@ -37,39 +37,41 @@ booksAll.push(bookFirst, bookSecond, bookThird, bookFourth);
 // console.log(booksAll);
 // console.log('-------------------------------------------------');
 
-console.log('Ksiazki przeczytane:');
+// console.log('Ksiazki przeczytane:');
 function quantityRead(booksAll) {
   let sumRead = 0;
   let sumUnread = 0;
-  booksAll.forEach(function (element) {
-    if (element.read === true) {
-      sumRead += true;
-      console.log(element.describeBook());
-     } else if (element.read !== true) {
-       sumUnread += 1;
-      //  console.log(element.describeBook());     
-     }   
+  booksAll.forEach(function (element, index) {
+    if (element.read) {
+      ++sumRead;
+      console.log((index + 1) + ': pozycja: ' + element.describeBook());
+     } else {
+      ++sumUnread;
+      console.log((index + 1) + ': pozycja: ' + element.describeBook());
+     }
   });
 
   
-  return 'Ilosc przeczytanych ksiazek to: ' + sumRead + '.'
+  return [`Ilosc przeczytanych ksiazek to: ${sumRead}.`, `Ilosc nieprzeczytanych ksiazek to: ${sumUnread}.` ];
 }
-console.log(quantityRead(booksAll)); 
+console.log(quantityRead(booksAll)[0]); 
+console.log(quantityRead(booksAll)[1]); 
 console.log('--------------------------');
 
-console.log('Ksiazki nieprzeczytane:');
-function quantityUnread(booksAll) {
-  let sumRead = 0;
-  let sumUnread = 0;
-  booksAll.forEach(function (element) {
-    if (element.read !== true) {
-       sumUnread += 1;
-       console.log(element.describeBook());     
-     }   
-  });
-  return 'Ilosc nieprzeczytanych ksiazek to: ' + sumUnread + '.'
-}
-console.log(quantityUnread(booksAll)); 
-console.log('--------------------------');
+// console.log('Ksiazki nieprzeczytane:');
+// function quantityUnread(booksAll) {
+//   let number = 0;
+//   let sumUnread = 0;
+//   booksAll.forEach(function (element) {
+//     if (!element.read) {
+//         sumUnread += 1;
+//         ++number; 
+//         // console.log(number + ': pozycja: ' + element.describeBook());     
+//      }   
+//   });
+//   return 'Ilosc nieprzeczytanych ksiazek to: ' + sumUnread + '.'
+// }
+// console.log(quantityUnread(booksAll)); 
+// console.log('--------------------------');
 
  
